@@ -30,9 +30,9 @@ app.post("/todo", async function (req, res) {
 });
 
 app.get("/todos", async function (req, res) {
-  const todos = await todo.find({});
+  const todos = await todo.find({}); // Correct model name and uncomment this line
   res.json({
-    msg: "todo created",
+    todos: todos, // Send the actual todos
   });
 });
 app.put("/completed", async function (req, res) {
