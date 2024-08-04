@@ -3,8 +3,14 @@ const { createTodo, updateTodo } = require("./types");
 const { todo } = require("./db");
 const app = express();
 const port = 3000;
+const cors = require("cors");
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 
 app.post("/todo", async function (req, res) {
   const createPayload = req.body;
